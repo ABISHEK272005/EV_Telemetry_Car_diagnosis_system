@@ -18,6 +18,10 @@ latest_data = {
 }
 clients = set()
 
+@app.get("/")
+async def root():
+    return {"status": "running"}
+
 @app.post("/update")
 async def update_data(request: Request):
     data = await request.json()
